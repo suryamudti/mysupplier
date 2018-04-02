@@ -9,82 +9,82 @@
     tools:context=".activity.MainActivity">
 
     <LinearLayout
-        android:background="@color/colorPrimary"
         android:layout_width="match_parent"
-        android:orientation="vertical"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@color/colorPrimary"
+        android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="@dimen/activity_vertical_margin"
             android:layout_gravity="center"
+            android:layout_marginTop="@dimen/activity_vertical_margin"
             android:background="@drawable/shape_rectangle_search"
-            android:gravity="center">
+            android:gravity="center"
+            android:orientation="horizontal">
 
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingTop="@dimen/control_padding_material"
+                android:layout_alignParentLeft="true"
                 android:paddingRight="@dimen/control_inset_material_big"
-                android:src="@drawable/ic_search_black_24dp"
-                android:layout_alignParentLeft="true"/>
+                android:paddingTop="@dimen/control_padding_material"
+                android:src="@drawable/ic_search_black_24dp" />
 
             <EditText
+                android:id="@+id/search_edit"
+                fontPath="fonts/latoRegular.ttf"
                 android:layout_width="190dp"
                 android:layout_height="wrap_content"
-                android:hint="Search"
-                android:id="@+id/search_edit"
                 android:background="@null"
+                android:hint="Search"
+                android:singleLine="true"
                 android:textSize="@dimen/text_size_small_material"
-                fontPath="fonts/latoRegular.ttf"
-                tools:ignore="MissingPrefix"
-                android:singleLine="true"/>
+                tools:ignore="MissingPrefix" />
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="GO"
                 android:id="@+id/search_go_button"
                 fontPath="fonts/latoRegular.ttf"
-                tools:ignore="MissingPrefix"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:background="@drawable/border_left_search"
-                android:textSize="@dimen/text_size_small_material" />
+                android:text="GO"
+                android:textSize="@dimen/text_size_small_material"
+                tools:ignore="MissingPrefix" />
 
         </LinearLayout>
 
         <TextView
-            android:padding="10dp"
-            android:gravity="center"
-            android:textSize="30dp"
-            android:textColor="@android:color/white"
-            android:text="@string/kategori"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="@string/kategori"
+            android:textColor="@android:color/white"
+            android:textSize="30dp" />
 
         <LinearLayout
-            android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
             <android.support.v7.widget.RecyclerView
-                android:paddingTop="4dp"
                 android:id="@+id/menu_recycler_view"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:elevation="@null"
                 android:clipToPadding="false"
+                android:elevation="@null"
                 android:orientation="vertical"
-                android:scrollbars="none"/>
+                android:paddingTop="4dp"
+                android:scrollbars="none" />
 
             <ProgressBar
                 android:id="@+id/progress_bar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:indeterminateTint="@color/colorAccent"
-                android:layout_marginTop="100dp" />
+                android:layout_marginTop="100dp"
+                android:indeterminateTint="@color/colorAccent" />
 
         </LinearLayout>
 
