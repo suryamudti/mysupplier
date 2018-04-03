@@ -61,14 +61,12 @@ public class MainActivity extends AppCompatActivity {
         menuList = new ArrayList<>();
         menuListAdapter = new MenuCategoryListAdapter(this, menuList);
 
-        RecyclerView.LayoutManager mLayoutManager = new GridLayoutManager(this, 3);
-        if (mLayoutManager==null || menuRecyclerView==null)
-        Log.e(App.LOG,"null betul");
+        RecyclerView.LayoutManager mLayoutManager = new GridLayoutManager(this, 2);
         menuRecyclerView.setLayoutManager(mLayoutManager);
         menuRecyclerView.setNestedScrollingEnabled(false);
         menuRecyclerView.setHasFixedSize(true);
         menuRecyclerView.setHorizontalScrollBarEnabled(true);
-        menuRecyclerView.addItemDecoration(new GridSpacingItemDecoration(3, dpToPx(15), true));
+        menuRecyclerView.addItemDecoration(new GridSpacingItemDecoration(2, dpToPx(15), true));
         menuRecyclerView.setItemAnimator(new DefaultItemAnimator());
         menuRecyclerView.setAdapter(menuListAdapter);
 
@@ -89,9 +87,9 @@ public class MainActivity extends AppCompatActivity {
                     menuList.clear();
                     menuList.addAll(response.body().getMenuCategories());
                     menuListAdapter.notifyDataSetChanged();
-
-                    db.deleteAlLMenus();
-                    db.createMenuCategory(response.body());
+//
+//                    db.deleteAlLMenus();
+//                    db.createMenuCategory(response.body());
                 }
 
                 progressBar.setVisibility(View.GONE);

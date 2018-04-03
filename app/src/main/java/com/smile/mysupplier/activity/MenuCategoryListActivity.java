@@ -22,8 +22,8 @@ import butterknife.ButterKnife;
 
 public class MenuCategoryListActivity extends AppCompatActivity {
 
-    @BindView(R.id.menu_recycler_view)RecyclerView menuRecyclerView;
-    @BindView(R.id.progress_bar) ProgressBar progressBar;
+//    @BindView(R.id.rv_menu_category) RecyclerView menuRecyclerView;
+//    @BindView(R.id.progress_bar) ProgressBar progressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,13 +31,13 @@ public class MenuCategoryListActivity extends AppCompatActivity {
         setContentView(R.layout.activity_menu_category_list);
         ButterKnife.bind(this);
 
-        RecyclerView.LayoutManager mLayoutManager = new GridLayoutManager(this, 2);
-        menuRecyclerView.setLayoutManager(mLayoutManager);
-        menuRecyclerView.setNestedScrollingEnabled(false);
-        menuRecyclerView.setHasFixedSize(true);
-        menuRecyclerView.setHorizontalScrollBarEnabled(true);
-        menuRecyclerView.addItemDecoration(new GridSpacingItemDecoration(2, dpToPx(15), true));
-        menuRecyclerView.setItemAnimator(new DefaultItemAnimator());
+//        RecyclerView.LayoutManager mLayoutManager = new GridLayoutManager(this, 2);
+//        menuRecyclerView.setLayoutManager(mLayoutManager);
+//        menuRecyclerView.setNestedScrollingEnabled(false);
+//        menuRecyclerView.setHasFixedSize(true);
+//        menuRecyclerView.setHorizontalScrollBarEnabled(true);
+//        menuRecyclerView.addItemDecoration(new GridSpacingItemDecoration(2, dpToPx(15), true));
+//        menuRecyclerView.setItemAnimator(new DefaultItemAnimator());
     }
 
     public class GridSpacingItemDecoration extends RecyclerView.ItemDecoration {
