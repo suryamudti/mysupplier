@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_content"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true">
+
+    <android.support.v4.widget.NestedScrollView
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@color/colorWhite">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="225dp"
+                android:scaleType="centerCrop"
+                android:id="@+id/image" />
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/relativeLayout"
+                android:gravity="left"
+                android:paddingTop="@dimen/activity_vertical_margin"
+                android:paddingLeft="@dimen/activity_horizontal_margin"
+                android:paddingRight="@dimen/activity_horizontal_margin">
+
+                <ImageButton
+                    android:id="@+id/wishlist_outline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_heart_outline_24_dp"
+                    android:background="@android:color/transparent"
+                    android:gravity="right"
+                    android:layout_alignParentRight="true"/>
+
+                <ImageButton
+                    android:id="@+id/wishlist"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_heart_24_dp"
+                    android:background="@android:color/transparent"
+                    android:gravity="right"
+                    android:layout_alignParentRight="true"
+                    android:visibility="gone"/>
+
+                <TextView
+                    android:id="@+id/name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Rindu Masakan Rumah"
+                    android:textColor="@color/colorBlack"
+                    fontPath="fonts/latoRegular.ttf"
+                    tools:ignore="MissingPrefix"
+                    android:textSize="@dimen/text_size_medium_small_material" />
+
+                <TextView
+                    android:id="@+id/description"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Lorem ipsum dolor de Lorem ipsum dolor de Lorem ipsum dolor de Lorem ipsum dolor de "
+                    android:lineSpacingExtra="6dp"
+                    android:textColor="@color/colorDark"
+                    fontPath="fonts/latoLight.ttf"
+                    tools:ignore="MissingPrefix"
+                    android:gravity="left"
+                    android:textSize="@dimen/text_size_small_material"
+                    android:layout_below="@+id/name"
+                    android:paddingTop="@dimen/activity_vertical_margin"
+                    android:paddingBottom="@dimen/activity_vertical_margin"/>
+
+                <TextView
+                    android:id="@+id/price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Rp20.000"
+                    android:lineSpacingExtra="6dp"
+                    android:textColor="@color/colorDark"
+                    fontPath="fonts/latoLight.ttf"
+                    tools:ignore="MissingPrefix"
+                    android:gravity="left"
+                    android:textSize="@dimen/text_size_medium_material"
+                    android:layout_below="@+id/description"
+                    android:paddingTop="@dimen/activity_vertical_margin"
+                    android:paddingBottom="@dimen/activity_vertical_margin"/>
+
+            </RelativeLayout>
+
+        </LinearLayout>
+    </android.support.v4.widget.NestedScrollView>
+
+</android.support.design.widget.CoordinatorLayout>

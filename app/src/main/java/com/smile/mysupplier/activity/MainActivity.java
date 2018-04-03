@@ -87,9 +87,6 @@ public class MainActivity extends AppCompatActivity {
                     menuList.clear();
                     menuList.addAll(response.body().getMenuCategories());
                     menuListAdapter.notifyDataSetChanged();
-//
-//                    db.deleteAlLMenus();
-//                    db.createMenuCategory(response.body());
                 }
 
                 progressBar.setVisibility(View.GONE);
