@@ -7,20 +7,43 @@ import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.util.TypedValue;
 import android.view.View;
 import android.widget.ProgressBar;
 
+import com.smile.mysupplier.App;
 import com.smile.mysupplier.R;
+import com.smile.mysupplier.adapter.MenuCategoryListAdapter;
+import com.smile.mysupplier.api.MenuApi;
+import com.smile.mysupplier.model.MenuCategory;
+import com.smile.mysupplier.model.response.MenuCategories;
+import com.smile.mysupplier.util.DatabaseHelper;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
+
+/**
+ * Created by surymudti on 2/4/18.
+ */
 
 public class MainActivity extends AppCompatActivity {
 
-    @BindView(R.id.menu_recycler_view)RecyclerView menuRecyclerView;
+    @BindView(R.id.rv_menu_category) RecyclerView menuRecyclerView;
     @BindView(R.id.progress_bar) ProgressBar progressBar;
 
+    private Retrofit retrofit;
+    private List<MenuCategory> menuList;
+    private MenuCategoryListAdapter menuListAdapter;
+    private DatabaseHelper db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,15 +51,57 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
 
-        RecyclerView.LayoutManager mLayoutManager = new GridLayoutManager(this, 2);
+        retrofit = new Retrofit.Builder()
+                .baseUrl(App.API)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        db = new DatabaseHelper(this);
+
+        menuList = new ArrayList<>();
+        menuListAdapter = new MenuCategoryListAdapter(this, menuList);
+
+        RecyclerView.LayoutManager mLayoutManager = new GridLayoutManager(this, 3);
+        if (mLayoutManager==null || menuRecyclerView==null)
+        Log.e(App.LOG,"null betul");
         menuRecyclerView.setLayoutManager(mLayoutManager);
         menuRecyclerView.setNestedScrollingEnabled(false);
         menuRecyclerView.setHasFixedSize(true);
         menuRecyclerView.setHorizontalScrollBarEnabled(true);
-        menuRecyclerView.addItemDecoration(new GridSpacingItemDecoration(2, dpToPx(15), true));
+        menuRecyclerView.addItemDecoration(new GridSpacingItemDecoration(3, dpToPx(15), true));
         menuRecyclerView.setItemAnimator(new DefaultItemAnimator());
+        menuRecyclerView.setAdapter(menuListAdapter);
 
+        getMenus();
 
+    }
+
+    private void getMenus(){
+        MenuApi service = retrofit.create(MenuApi.class);
+
+        Call<MenuCategories> call = service.menuCategories();
+
+        call.enqueue(new Callback<MenuCategories>() {
+            @Override
+            public void onResponse(Call<MenuCategories> call, Response<MenuCategories> response) {
+                if (response.raw().isSuccessful()) {
+
+                    menuList.clear();
+                    menuList.addAll(response.body().getMenuCategories());
+                    menuListAdapter.notifyDataSetChanged();
+
+                    db.deleteAlLMenus();
+                    db.createMenuCategory(response.body());
+                }
+
+                progressBar.setVisibility(View.GONE);
+            }
+
+            @Override
+            public void onFailure(Call<MenuCategories> call, Throwable t) {
+                progressBar.setVisibility(View.GONE);
+            }
+        });
     }
 
 
@@ -74,6 +139,8 @@ public class MainActivity extends AppCompatActivity {
             }
         }
     }
+
+
 
     /**
      * Converting dp to pixel

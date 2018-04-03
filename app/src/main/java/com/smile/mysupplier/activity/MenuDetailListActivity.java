@@ -5,6 +5,10 @@ import android.os.Bundle;
 
 import com.smile.mysupplier.R;
 
+/**
+ * Created by surymudti on 2/4/18.
+ */
+
 public class MenuDetailListActivity extends AppCompatActivity {
 
     @Override

@@ -16,6 +16,10 @@ import com.smile.mysupplier.R;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
+/**
+ * Created by surymudti on 2/4/18.
+ */
+
 public class MenuCategoryListActivity extends AppCompatActivity {
 
     @BindView(R.id.menu_recycler_view)RecyclerView menuRecyclerView;

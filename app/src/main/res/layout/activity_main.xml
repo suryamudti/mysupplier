@@ -1,17 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:elevation="10dp"
-    tools:context=".activity.MainActivity">
+    android:elevation="10dp">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/colorPrimary"
+        android:background="@drawable/background"
         android:orientation="vertical">
 
         <LinearLayout
@@ -63,30 +62,39 @@
             android:textColor="@android:color/white"
             android:textSize="30dp" />
 
-        <LinearLayout
+        <android.support.v4.widget.NestedScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:background="@color/colorWhite"
+            android:scrollbars="none">
 
-            <android.support.v7.widget.RecyclerView
-                android:id="@+id/menu_recycler_view"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:clipToPadding="false"
-                android:elevation="@null"
-                android:orientation="vertical"
-                android:paddingTop="4dp"
-                android:scrollbars="none" />
+                android:focusableInTouchMode="true"
+                android:orientation="vertical">
 
-            <ProgressBar
-                android:id="@+id/progress_bar"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="100dp"
-                android:indeterminateTint="@color/colorAccent" />
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/rv_menu_category"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clipToPadding="false"
+                    android:elevation="@null"
+                    android:orientation="vertical"
+                    android:paddingTop="4dp"
+                    android:scrollbars="none" />
 
-        </LinearLayout>
+                <ProgressBar
+                    android:id="@+id/progress_bar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="100dp"
+                    android:indeterminateTint="@color/colorAccent" />
+
+            </LinearLayout>
+
+        </android.support.v4.widget.NestedScrollView>
 
     </LinearLayout>
 
