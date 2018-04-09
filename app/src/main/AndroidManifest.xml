@@ -28,8 +28,10 @@
             </intent-filter>
         </activity>
         <activity android:name=".activity.MenuCategoryListActivity" />
-        <activity android:name=".activity.MenuDetailListActivity"></activity>
-        <activity android:name=".activity.MenuDetailActivity"></activity>
+        <activity android:name=".activity.MenuDetailListActivity" />
+        <activity android:name=".activity.MenuDetailActivity" />
+        <activity android:name=".activity.SupplierRegisterActivity" />
+        <activity android:name=".activity.LocationRegisterActivity"></activity>
     </application>
 
 </manifest>
