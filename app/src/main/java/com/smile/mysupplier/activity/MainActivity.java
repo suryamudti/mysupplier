@@ -1,5 +1,6 @@
 package com.smile.mysupplier.activity;
 
+import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.Rect;
 import android.support.v7.app.AppCompatActivity;
@@ -10,6 +11,7 @@ import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.util.TypedValue;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ProgressBar;
 
 import com.smile.mysupplier.App;
@@ -39,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
 
     @BindView(R.id.rv_menu_category) RecyclerView menuRecyclerView;
     @BindView(R.id.progress_bar) ProgressBar progressBar;
+    @BindView(R.id.btnBeMySupplier) Button btnBeMySupplier;
 
     private Retrofit retrofit;
     private List<MenuCategory> menuList;
@@ -69,6 +72,14 @@ public class MainActivity extends AppCompatActivity {
         menuRecyclerView.addItemDecoration(new GridSpacingItemDecoration(2, dpToPx(15), true));
         menuRecyclerView.setItemAnimator(new DefaultItemAnimator());
         menuRecyclerView.setAdapter(menuListAdapter);
+
+        btnBeMySupplier.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this,SupplierRegisterActivity.class);
+                startActivity(intent);
+            }
+        });
 
         getMenus();
 

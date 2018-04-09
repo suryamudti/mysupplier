@@ -65,6 +65,9 @@ public class MenuDetailListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu_detail_list);
         ButterKnife.bind(this);
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         db = new DatabaseHelper(getBaseContext().getApplicationContext());
 
         menuCategory = (MenuCategory) getIntent().getSerializableExtra("menuCategory");
@@ -171,5 +174,11 @@ public class MenuDetailListActivity extends AppCompatActivity {
     private int dpToPx(int dp) {
         Resources r = getResources();
         return Math.round(TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp, r.getDisplayMetrics()));
+    }
+
+    @Override
+    public boolean onSupportNavigateUp(){
+        finish();
+        return true;
     }
 }

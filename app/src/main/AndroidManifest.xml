@@ -16,6 +16,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyB1xS3kz4xerhJadflNJ8heFn4Az4dHs_s" />
+
         <activity
             android:name=".activity.MainActivity"
             android:label="@string/app_name"
@@ -31,7 +35,9 @@
         <activity android:name=".activity.MenuDetailListActivity" />
         <activity android:name=".activity.MenuDetailActivity" />
         <activity android:name=".activity.SupplierRegisterActivity" />
-        <activity android:name=".activity.LocationRegisterActivity"></activity>
+        <activity android:name=".activity.LocationRegisterActivity" />
+        <activity android:name=".activity.MapsTagRegisterActivity" />
+        <activity android:name=".activity.QuantityRegisterActivity"></activity>
     </application>
 
 </manifest>

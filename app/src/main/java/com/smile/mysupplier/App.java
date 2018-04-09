@@ -10,8 +10,8 @@ public class App extends Application {
 //    public static String URL = "http://192.168.43.161/mysupplier/";
 
 
-    public static String API = "http://10.0.0.165/mysupplier/api/v1/";
-    public static String URL = "http://10.0.0.165/mysupplier/";
+    public static String API = "http://10.0.0.82/mysupplier/api/v1/";
+    public static String URL = "http://10.0.0.82/mysupplier/";
 
     private static String uniqueID = null;
     private static final String PREF_UNIQUE_ID = "PREF_UNIQUE_ID";

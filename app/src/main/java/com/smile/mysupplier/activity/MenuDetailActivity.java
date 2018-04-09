@@ -43,6 +43,8 @@ public class MenuDetailActivity extends AppCompatActivity {
         setContentView(R.layout.activity_menu_detail);
         ButterKnife.bind(this);
 
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         db = new DatabaseHelper(MenuDetailActivity.this);
         OkHttpClient client = new OkHttpClient.Builder().addInterceptor(new Interceptor() {
             @Override
@@ -64,5 +66,11 @@ public class MenuDetailActivity extends AppCompatActivity {
         name.setText(menu.getName());
         description.setText(menu.getDescription());
         price.setText(menu.getFormattedPrice());
+    }
+
+    @Override
+    public boolean onSupportNavigateUp(){
+        finish();
+        return true;
     }
 }
