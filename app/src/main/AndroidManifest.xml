@@ -37,7 +37,8 @@
         <activity android:name=".activity.SupplierRegisterActivity" />
         <activity android:name=".activity.LocationRegisterActivity" />
         <activity android:name=".activity.MapsTagRegisterActivity" />
-        <activity android:name=".activity.QuantityRegisterActivity"></activity>
+        <activity android:name=".activity.QuantityRegisterActivity" />
+        <activity android:name=".activity.SupplyTypeRegisterActivity"></activity>
     </application>
 
 </manifest>

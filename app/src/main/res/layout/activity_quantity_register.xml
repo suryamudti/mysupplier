@@ -10,5 +10,29 @@
     android:elevation="10dp"
     tools:context=".activity.QuantityRegisterActivity">
 
+    <LinearLayout
+        android:padding="10dp"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:textColor="@android:color/white"
+            android:text="Berapa banyak barang yang dapat anda supply"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <android.support.v7.widget.CardView
+            app:cardCornerRadius="30dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+        </android.support.v7.widget.CardView>
+
+    </LinearLayout>
+
+
+
 
 </LinearLayout>
