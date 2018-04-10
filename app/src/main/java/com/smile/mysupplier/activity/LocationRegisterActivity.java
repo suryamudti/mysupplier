@@ -33,6 +33,8 @@ public class LocationRegisterActivity extends AppCompatActivity{
         setContentView(R.layout.activity_location_register);
         ButterKnife.bind(this);
 
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         btnMaps.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -41,6 +43,12 @@ public class LocationRegisterActivity extends AppCompatActivity{
             }
         });
 
+    }
+
+    @Override
+    public boolean onSupportNavigateUp(){
+        finish();
+        return true;
     }
 
 

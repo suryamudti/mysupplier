@@ -38,8 +38,6 @@ public class SupplierRegisterActivity extends AppCompatActivity  {
     @BindView(R.id.nomorKK) AutoCompleteTextView etNomorKK;
     @BindView(R.id.namaLengkap) AutoCompleteTextView etNamaLengkap;
 
-
-
     @Override
     protected void attachBaseContext(Context context) {
         super.attachBaseContext(CalligraphyContextWrapper.wrap(context));
@@ -61,6 +59,12 @@ public class SupplierRegisterActivity extends AppCompatActivity  {
             }
         });
 
+    }
+
+    @Override
+    public boolean onSupportNavigateUp(){
+        finish();
+        return true;
     }
 
 
